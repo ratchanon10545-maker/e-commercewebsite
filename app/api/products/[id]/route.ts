@@ -1,10 +1,15 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { products } from '@/app/data/products';
 
+type Context = {
+  params: Promise<{ id: string }>
+}
+
 export async function GET(
-  { params }: { params: { id: string } }
+  request: NextRequest, 
+  context: Context      
 ) {
-  const id = params.id; // ดึง id จาก URL
+  const { id } = await context.params; // ดึง id จาก URL
   const product = products.find((product) => product.id === Number(id));
   if (!product) {
     return NextResponse.json({
@@ -15,10 +20,10 @@ export async function GET(
 }
 
 export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  context: Context
 ) {
-  const id = params.id; // ดึง id จาก URL
+  const { id } = await context.params; // ดึง id จาก URL
   const body = await request.json();
 
   // จำลองว่าเราไปหาข้อมูลใน DB แล้วอัปเดต
