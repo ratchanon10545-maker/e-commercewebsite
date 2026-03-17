@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-innter: var(--font-innter);
+  --font-poppins: var(--font-poppins);
+}
+
+/* เข้า */
+@keyframes slide-in-left {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* ออก */
+@keyframes slide-out-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes slide-out-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+.slide-in-left {
+  animation: slide-in-left 1s ease forwards;
+}
+
+.slide-in-right {
+  animation: slide-in-right 1s ease forwards;
+}
+
+.slide-out-left {
+  animation: slide-out-left 1s ease forwards;
+}
+
+.slide-out-right {
+  animation: slide-out-right 1s ease forwards;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+    /* margin: 0px; */
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    /* background: black; */
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #DB4444;
+    border-radius: 100vh;
+    
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: black;
+  }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
